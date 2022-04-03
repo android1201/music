@@ -1,0 +1,21 @@
+{
+  "name": "music",
+  "version": "0.0.0",
+  "description": "Dil se dil tak!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "devdk",
+  "license": "ISC",
+  "dependencies": { 
+    "colors": "^1.4.0",
+    "discord.js": "^13.6.0",
+    "node-fetch": "^2.6.7",
+    "axios": "^0.21.2",
+    "dk-discord": "^0.0.5",
+    "express": "^4.17.2",
+    "quickmongo": "^5.1.2",
+    "url": "^0.11.0"
+  }
+}
