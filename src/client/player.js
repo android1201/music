@@ -1,9 +1,4 @@
-module.exports = async (client) => {
-    const {
-        Player
-    } = require('discord-player');
-    client.player = new Player(client);
-    
+module.exports = async (client) => { 
     client.player.on("error", (queue, error) => {
         console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
     });

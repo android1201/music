@@ -28,8 +28,12 @@ const {
     }),
 	fs = require('fs'),
 	path = require('path');
+const {
+    Player
+} = require('discord-player');
 // client vars
 client["discord"] = require('discord.js');
+client["player"] = new Player(client);
 client["devData"] = {
     commands: new client.discord.Collection(),
     config: config,
