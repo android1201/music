@@ -1,4 +1,7 @@
 module.exports = async (client) => { 
+    /*
+     * console error events 
+     */
     client.player.on("error", (queue, error) => {
         console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
     });
@@ -6,23 +9,41 @@ module.exports = async (client) => {
         console.log(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`);
     });
 
+    /*
+     * player event
+     */
     client.player.on("trackStart", (queue, track) => {
-        queue.metadata.send(`🎶 | Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
+        queue.metadata.send({
+            embeds: [{
+                description: `${client.devData.emoji.playing} **Start playing:** [${track.title}](${track.url})`,
+                color: `#6f2da8`,
+                footer: {
+                    text: `Requested by ${track.requestedBy.username}#${track.requestedBy.discriminator}`,
+                    icon_url: client.user.displayAvatarURL()
+                }
+            }]
+        });
     });
 
     client.player.on("trackAdd", (queue, track) => {
-        queue.metadata.send(`🎶 | Track **${track.title}** queued!`);
+        queue.metadata.send({
+            embeds: [{
+                description: `${client.devData.emoji.queue} **Track queued:** [${track.title}](${track.url})\n**Duration:** ${track.duration}`,
+                color: `#6f2da8`,
+                footer: {
+                    text: `Requested by ${track.requestedBy.username}#${track.requestedBy.discriminator}`,
+                    icon_url: client.user.displayAvatarURL()
+                }
+            }]
+        });
     });
-
-    client.player.on("botDisconnect", (queue) => {
-        queue.metadata.send("❌ | I was manually disconnected from the voice channel, clearing queue!");
-    });
-
-    client.player.on("channelEmpty", (queue) => {
-        queue.metadata.send("❌ | Nobody is in the voice channel, leaving...");
-    });
-
+    
     client.player.on("queueEnd", (queue) => {
-        queue.metadata.send("✅ | Queue finished!");
+        queue.metadata.send({
+            embeds: [{
+                description: `${client.devData.emoji.success} Queue ended!`,
+                color: `#6f2da8`
+            }]
+        });
     });
 };
