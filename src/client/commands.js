@@ -7,16 +7,13 @@ module.exports = async (client) => {
         const cmds = fs.readdirSync(path.resolve(__dirname, '../commands') + '/' + dir);
         for(var files of cmds) {
             const file = require('../commands/' + dir + '/' + files);
-            if(['MESSAGE', 'USER'].includes(file.type)) delete file.description;
-            if(file.permissions) file.permissions = false;
-            console.log(file);
             client.devData.commands.set(file.name, file);
             var obj = {
-                name: file.name ? file.name : false,
-                description: file.description ? file.description : false,
-                options: file.options ? file.options : false,
-                type: file.type ? file.type : false,
-                default_permission: file.permissions ? file.permissions : false
+                name: file.name ? file.name : undefined,
+                description: file.description ? file.description : undefined,
+                options: file.options ? file.options : undefined,
+                type: file.type ? file.type : undefined,
+                default_permission: file.permissions ? file.permissions : undefined
             };
             slash.push(obj)
         }

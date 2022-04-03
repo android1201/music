@@ -8,12 +8,14 @@
   },
   "author": "devdk",
   "license": "ISC",
-  "dependencies": { 
+  "dependencies": {
     "colors": "^1.4.0",
+    "discord-player": "^5.2.2",
     "discord.js": "^13.6.0",
-    "node-fetch": "^2.6.7",
     "dk-discord": "^0.0.5",
     "express": "^4.17.2",
+    "ffmpeg-static": "^5.0.0",
+    "node-fetch": "^2.6.7",
     "quickmongo": "^5.1.2",
     "url": "^0.11.0"
   }
