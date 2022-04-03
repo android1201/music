@@ -5,7 +5,7 @@ module.exports = async (client, interaction) => {
         if(!(command || guild)) return;
         try {
             await interaction.deferReply({ ephemeral: false }).catch(() => {});
-            command.run(client, interaction);
+            command.run(client, interaction).catch(() => {});
         } catch (e) {
             console.log(e);
         }
