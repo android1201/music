@@ -38,6 +38,7 @@ client["devData"] = {
     commands: new client.discord.Collection(),
     config: config,
     discord: require('discord.js'),
+    emoji: {},
     function: {}
 };
 fs.readdirSync(path.resolve(__dirname, '../client/')).map(file => {
