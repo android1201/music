@@ -12,7 +12,7 @@ module.exports = {
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(interaction.guild.id);
         const channel = client.channels.cache.get(interaction.channel.id);
-        const query = interaction.options.getString('query');
+        const query = interaction.options.getString('song');
         const searchResult = await client.player
             .search(query, {
                 requestedBy: interaction.user
