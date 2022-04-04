@@ -3,7 +3,7 @@ module.exports = {
     description: 'play or add a song to queue!',
     options: [
         {
-                    name: 'query',
+                    name: 'song',
                     type: 3,
                     description: 'The song you want to play',
                     required: true
