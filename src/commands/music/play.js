@@ -9,6 +9,7 @@ module.exports = {
                     required: true
         }
     ],
+    permissions: ,
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(interaction.guild.id);
         const channel = client.channels.cache.get(interaction.channel.id);

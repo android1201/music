@@ -37,7 +37,35 @@ module.exports = async (client) => {
             }]
         });
     });
-    
+
+    client.player.on("botDisconnect", (queue) => {
+        queue.metadata.send({
+            embeds: [{
+                description: `${client.devData.emoji.error} I was manually disconnected from the voice channel, paused queue!`,
+                color: `#dc143c`,
+                footer: {
+                    text: client.user.username,
+                    icon_url: client.user.displayAvatarURL()
+                }
+            }]
+        });
+        const paused = queue.setPaused(false);
+    });
+
+    client.player.on("channelEmpty", (queue) => {
+        queue.metadata.send({
+            embeds: [{
+                description: `${client.devData.emoji.error} Nobody is in the voice channel, paused queue!`,
+                color: `#dc143c`,
+                footer: {
+                    text: client.user.username,
+                    icon_url: client.user.displayAvatarURL()
+                }
+            }]
+        });
+        const paused = queue.setPaused(false);
+    });
+
     client.player.on("queueEnd", (queue) => {
         queue.metadata.send({
             embeds: [{
