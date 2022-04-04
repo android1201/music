@@ -22,10 +22,7 @@ module.exports = {
             });
         if (!searchResult || !searchResult.tracks.length) return interaction.followUp({ content: 'No results were found!' });
 
-        const queue = await client.player.createQueue(guild, {
-			metadata: channel,
-            user: interaction.user
-        });
+        const queue = client["queue"];
 
         const member = guild.members.cache.get(interaction.user.id) ?? await guild.members.fetch(interaction.user.id);
         try {
