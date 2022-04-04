@@ -38,7 +38,7 @@ const {
 // client vars
 client["discord"] = require('discord.js');
 client["player"] = new Player(client);
-client["queue"] = {};
+client["queue"] = false;
 client["devData"] = {
     commands: new client.discord.Collection(),
     config: config,
