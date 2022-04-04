@@ -5,11 +5,10 @@ module.exports = {
         {
                     name: 'song',
                     type: 3,
-                    description: 'The song you want to play',
+                    description: 'The song name or link you want to play',
                     required: true
         }
     ],
-    permissions: ,
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(interaction.guild.id);
         const channel = client.channels.cache.get(interaction.channel.id);
