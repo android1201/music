@@ -7,7 +7,7 @@ module.exports = async (client) => {
 			function formater(el) {
 				var obj = {}
 				el.forEach(v => {
-					const i = guild.emojis.cache.find(x => x.name = v);
+					const i = guild.emojis.cache.find(x => x.name === v);
 					if(i) {
 						var check = i.animated ? '<a:' : '<:',
 							format = `${check}${i.name}:${i.id}>`
